@@ -1,0 +1,346 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Quotes",
+		"_postman_id": "a6d57b35-0ec0-04c7-ae90-8c9d83f5a124",
+		"description": "This is the collection of API calls for Quotes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all authors",
+			"request": {
+				"url": "localhost:8081/authors",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic [replace_with_password]",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Authors get"
+			},
+			"response": []
+		},
+		{
+			"name": "Authors creation",
+			"request": {
+				"url": "localhost:8081/authors",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic [replace_with_password]",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"first_name\":\"First_name\",\n  \"last_name\":\"Last_name\",\n  \"dob\":\"1900-01-01\"\n}"
+				},
+				"description": "Authors post"
+			},
+			"response": []
+		},
+		{
+			"name": "Get author by ID",
+			"request": {
+				"url": "localhost:8081/authors/2",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic [replace_with_password]",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Get an author"
+			},
+			"response": []
+		},
+		{
+			"name": "Put to authors",
+			"request": {
+				"url": "localhost:8081/authors/2",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic [replace_with_password]",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"entity_id\":\"2\",\n  \"first_name\":\"First_name\",\n  \"last_name\":\"Last_name\",\n  \"dob\":\"1900-01-01\"\n}"
+				},
+				"description": "Put an author"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete to authors",
+			"request": {
+				"url": "localhost:8081/authors/2",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic [replace_with_password]",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "Delete an author"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all quotes",
+			"request": {
+				"url": "localhost:8081/quotes",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic [replace_with_password]",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Quotes get"
+			},
+			"response": []
+		},
+		{
+			"name": "Quotes creation",
+			"request": {
+				"url": "localhost:8081/quotes",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic [replace_with_password]",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"author_id\":\"2\",\n  \"quote\":\"Smile, life is short\",\n  \"location\":\"Miami, Fl\"\n}"
+				},
+				"description": "Quotes post"
+			},
+			"response": []
+		},
+		{
+			"name": "Get quote by ID",
+			"request": {
+				"url": "localhost:8081/quotes/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic [replace_with_password]",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Get a quote"
+			},
+			"response": []
+		},
+		{
+			"name": "Put quote",
+			"request": {
+				"url": "localhost:8081/quotes/1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic [replace_with_password]",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"entity_id\":\"1\",\n  \"author_id\":\"2\",\n  \"quote\":\"Computers rule!\",\n  \"location\":\"Miami, FL\"\n}"
+				},
+				"description": "Put a quote"
+			},
+			"response": []
+		},
+		{
+			"name": "Quotes rest filtered",
+			"request": {
+				"url": {
+					"raw": "localhost:8081/quotesrest?author_id=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"quotesrest"
+					],
+					"query": [
+						{
+							"key": "author_id",
+							"value": "2",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Quotes rest filtered with author_id"
+			},
+			"response": []
+		},
+		{
+			"name": "Quotesrest creation",
+			"request": {
+				"url": "localhost:8081/quotesrest",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic [replace_with_password]",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"author_id\":\"2\",\n  \"quote\":\"Smile, life is short\",\n  \"location\":\"Miami, Fl\",\n  \"created_at\":\"2017-06-13 20:40:00\"\n}"
+				},
+				"description": "Quotesrest post"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all quotesrest",
+			"request": {
+				"url": "localhost:8081/quotesrest",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic [replace_with_password]",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Quotes get"
+			},
+			"response": []
+		},
+		{
+			"name": "Quotesrest creation",
+			"request": {
+				"url": "localhost:8081/quotesrest",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic [replace_with_password]",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"author_id\":\"2\",\n  \"quote\":\"Smile, life is short\",\n  \"location\":\"Miami, Fl\"\n}"
+				},
+				"description": "Quotes post"
+			},
+			"response": []
+		},
+		{
+			"name": "Put quoterest",
+			"request": {
+				"url": "localhost:8081/quotesrest/1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic [replace_with_password]",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"entity_id\":\"1\",\n  \"author_id\":\"2\",\n  \"quote\":\"Computers ruley!\",\n  \"location\":\"Miami, FL\"\n}"
+				},
+				"description": "Put a quote"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete quotesrest",
+			"request": {
+				"url": "localhost:8081/quotesrest/25",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
